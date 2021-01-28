@@ -2,6 +2,7 @@ import { BsCardImage, BsXCircleFill } from "react-icons/bs";
 import styled from "styled-components";
 import { useFetch } from "../utils/hooks/useFetch";
 import Track from "./track";
+import ScaleLoader from "react-spinners/ScaleLoader";
 
 const ModalStyles = styled.div`
   position: absolute;
@@ -25,7 +26,7 @@ const ModalStyles = styled.div`
     right: 0.5rem;
     top: 0.5rem;
     border: none;
-    color: var(--blue);
+    color: var(--orange);
     font-size: 2rem;
     background-color: transparent;
     cursor: pointer;
@@ -61,7 +62,8 @@ export default function AlbumModal({ id, getId }) {
   const [loading, data] = useFetch(url);
   const [loadingTracks, tracks] = useFetch(urlTracks);
   if (!data || !tracks) return null;
-  if (loading || loadingTracks) return <h1> Loading </h1>;
+  if (loading || loadingTracks)
+    return <ScaleLoader color="var(--red)" loading={loading} size={150} />;
 
   console.log(tracks);
   console.log(data.album[0]);

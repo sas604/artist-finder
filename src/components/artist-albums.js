@@ -1,6 +1,7 @@
 import { useFetch } from "../utils/hooks/useFetch";
 import { BsCardImage } from "react-icons/bs";
 import styled from "styled-components";
+import ScaleLoader from "react-spinners/ScaleLoader";
 
 const AlbumListStyles = styled.div`
   flex: 7;
@@ -51,7 +52,8 @@ export default function ArtistAlbums({ id, getId }) {
       top: 0,
       behavior: "smooth",
     });
-  if (loading) return <h1>Loading</h1>;
+  if (loading)
+    return <ScaleLoader color="var(--red)" loading={loading} size={150} />;
   const album = data?.album;
   console.log(album);
   if (!album) return null;

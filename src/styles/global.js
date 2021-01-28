@@ -47,5 +47,10 @@ img{
 h1,h2,h3,h4{
   margin:0;
 }
-  `;
+ 
+.css-0 {
+    display: block;
+    text-align: center;
+    margin: 3rem auto;
+  }`;
 export default GlobalStyles;
