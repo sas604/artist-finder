@@ -6,7 +6,12 @@ const AppStyles = styled.main`
   padding: 4rem 1rem;
   max-width: 960px;
   margin: 0 auto;
-
+  .empty {
+    display: block;
+    margin: 1rem;
+    color: var(--red);
+    text-align: center;
+  }
   .theme-switch-wrapper {
     position: absolute;
     right: 1rem;

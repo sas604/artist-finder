@@ -6,6 +6,7 @@ import ArtistBio from "./components/artist-bio";
 import AlbumModal from "./components/album-modal";
 import AppStyles from "./styles/app-styles";
 import ScaleLoader from "react-spinners/ScaleLoader";
+import NotFound from "./components/404";
 function App() {
   const [artist, SetArtist] = useState(false);
   const [query, SetQuery] = useState("");
@@ -16,6 +17,12 @@ function App() {
   const getId = (id) => setAlbumId(id);
   const searchArtist = (e) => {
     e.preventDefault();
+    if (!values.query) {
+      setNotFound(
+        <span className="empty">Empty request. Try to type artist name</span>
+      );
+      return;
+    }
     SetQuery(
       `https://theaudiodb.com/api/v1/json/1/search.php?s=${values.query.replace(
         " ",
@@ -70,7 +77,7 @@ function App() {
           </button>
         </form>
         <ScaleLoader color="var(--red)" loading={loading} size={150} />
-        {notFound && <h3>NotFound</h3>}
+        {notFound && <NotFound text={notFound} />}
         {artist && !notFound && <ArtistBio getId={getId} artist={artist} />}
       </AppStyles>
     </>

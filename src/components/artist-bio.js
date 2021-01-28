@@ -29,7 +29,6 @@ const ArtistBioStyles = styled.div`
 `;
 export default function ArtistBio({ artist, getId }) {
   const { strArtist, strArtistThumb, strGenre, idArtist } = artist;
-  console.log(artist);
 
   return (
     <ArtistBioStyles>

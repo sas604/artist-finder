@@ -65,8 +65,6 @@ export default function AlbumModal({ id, getId }) {
   if (loading || loadingTracks)
     return <ScaleLoader color="var(--red)" loading={loading} size={150} />;
 
-  console.log(tracks);
-  console.log(data.album[0]);
   const album = data.album[0];
   return (
     <ModalStyles>

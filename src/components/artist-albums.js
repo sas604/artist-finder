@@ -55,7 +55,6 @@ export default function ArtistAlbums({ id, getId }) {
   if (loading)
     return <ScaleLoader color="var(--red)" loading={loading} size={150} />;
   const album = data?.album;
-  console.log(album);
   if (!album) return null;
   return (
     <AlbumListStyles>
