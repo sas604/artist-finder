@@ -6,6 +6,7 @@ const ArtistBioStyles = styled.div`
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
+  gap: 3rem;
   @media (max-width: 600px) {
     flex-direction: column;
   }
@@ -26,7 +27,7 @@ const ArtistBioStyles = styled.div`
     }
   }
 `;
-export default function ArtistBio({ artist }) {
+export default function ArtistBio({ artist, getId }) {
   const { strArtist, strArtistThumb, strGenre, idArtist } = artist;
   console.log(artist);
 
@@ -42,7 +43,7 @@ export default function ArtistBio({ artist }) {
         </div>
       </div>
 
-      <ArtistAlbums id={idArtist} />
+      <ArtistAlbums id={idArtist} getId={getId} />
     </ArtistBioStyles>
   );
 }

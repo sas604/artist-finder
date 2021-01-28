@@ -7,17 +7,34 @@ const GlobalStyles = createGlobalStyle`
     --blue: hsla(202, 94%, 43%, 1); 
     --auqa: hsla(174, 96%, 43%, 1); 
     --yellow: hsla(45, 96%, 48%, 1); 
-    --white: hsla(0, 0%, 95%, 1); 
+    --white: hsla(0, 0%, 98%, 1); 
     --gray: hsla(0, 0%, 71%, 1);
     --font: hsl(0,0%, 0%);
-    --bg:hsla(0, 0%, 95%, 1);
+    --bg:hsla(0, 0%, 98%, 1);
+    --blue-shadow: hsla(202, 94%, 43%, 0.5); 
+    --black:hsla(0,0%, 0%, 94%);
+    --orange:hsla(30, 81%, 48%, 1);
+    --moon: var(--gray);
+    --sun: var(--orange);
+}
+.dark{
+  --bg:hsla(0 ,0%, 11%, 1);
+  --font:var(--white);
+  --moon:var(--blue);
+  --sun:var(--gray);
 }
 html{
   font-family: 'Poppins', sans-serif;
-  color:var(--font);
-background-color:var(--bg);
+  
+
   
 }
+body{ 
+  overflow-x:hiden;
+  position:relative;
+  color:var(--font);
+  background-color:var(--bg);
+  }
 html {
   box-sizing: border-box;
 }

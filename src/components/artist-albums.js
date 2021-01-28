@@ -4,7 +4,6 @@ import styled from "styled-components";
 
 const AlbumListStyles = styled.div`
   flex: 7;
-  padding-left: 3rem;
   h3 {
     font-size: 1.5rem;
   }
@@ -16,8 +15,11 @@ const AlbumListStyles = styled.div`
   }
   li {
     list-style: none;
+    transition: all 0.2s;
     &:hover {
-      cursor: poiner;
+      cursor: pointer;
+      transform: translateY(-5px);
+      box-shadow: 0px 0px 15px 0px var(--blue-shadow);
     }
   }
   .no-image {
@@ -29,6 +31,7 @@ const AlbumListStyles = styled.div`
     border: 1px solid var(--red);
   }
   .album-info {
+    padding: 0 0.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -40,19 +43,30 @@ const AlbumListStyles = styled.div`
     }
   }
 `;
-export default function ArtistAlbums({ id }) {
+export default function ArtistAlbums({ id, getId }) {
   const url = `https://theaudiodb.com/api/v1/json/1/album.php?i=${id}`;
   const [loading, data] = useFetch(url);
-
+  const scrollToTop = () =>
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
   if (loading) return <h1>Loading</h1>;
   const album = data?.album;
+  console.log(album);
   if (!album) return null;
   return (
     <AlbumListStyles>
       <h3>Albums</h3>
       <ul>
         {album.map((album) => (
-          <li key={album.idAlbum}>
+          <li
+            key={album.idAlbum}
+            onClick={() => {
+              scrollToTop();
+              getId(album.idAlbum);
+            }}
+          >
             {album.strAlbumThumb ? (
               <img src={album.strAlbumThumb} alt={`${album.strAlbum} logo`} />
             ) : (
