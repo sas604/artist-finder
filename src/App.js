@@ -35,7 +35,7 @@ function App() {
     if (!data) return;
     if (!data.artists) {
       SetArtist("false");
-      setNotFound(true);
+      setNotFound(<h2>Nothing was found</h2>);
       return;
     }
     SetArtist(data.artists[0]);
